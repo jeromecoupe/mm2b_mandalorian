@@ -26,10 +26,7 @@
 =============================== */
 
 :root {
-  --grid-gap: 24px;
-
-  --color-white: #ffffff;
-
+  /* base color variables (not used directly in CSS) */
   --color-grey-100: hsl(356, 6%, 5%);
   --color-grey-200: hsl(356, 6%, 15%);
   --color-grey-300: hsl(356, 6%, 30%);
@@ -39,16 +36,31 @@
   --color-grey-700: hsl(356, 6%, 86%);
   --color-grey-800: hsl(356, 6%, 98%);
 
+  /* color variables (used directly in CSS) */
+  --color-orange: hsl(36, 78%, 56%);
+  --color-orange-light: hsl(36, 78%, 84%);
+  --color-orange-dark: color-mix(in hsl, var(--color-orange), black 16%);
+
+  --color-white: #ffffff;
+
   --color-background-primary: #3d2c2d;
   --color-text-primary: var(--color-grey-700);
   --color-text-secondary: var(--color-grey-600);
 
-  --color-accent: hsl(36, 78%, 56%);
-  --color-accent-light: hsl(36, 78%, 84%);
-  --color-accent-dark: color-mix(in hsl, var(--color-accent), black 16%);
+  --color-accent: var(--color-orange);
+  --color-accent-light: var(--color-orange-light);
+  --color-accent-dark: var(--color-orange-dark);
 
+  /* fonts */
   --fontstack-alt: "Supreme", "Helvetica Neue", system-ui, sans-serif;
   --fontstack-main: system-ui, sans-serif;
+
+  /* grid */
+  --grid-gap: 24px;
+
+  /* radii */
+  --radius: 6px;
+  --radius-small: 3px;
 }
 
 /* ===============================
@@ -166,11 +178,16 @@ a {
   }
 }
 
+.siteheader__logo > a {
+  display: block;
+}
+
 /* ===============================
 =logo
 =============================== */
 
 .logo {
+  display: block;
   width: 120px;
   height: auto;
 
@@ -204,7 +221,6 @@ a {
   line-height: 1.2;
   font-family: var(--fontstack-alt);
   text-transform: uppercase;
-  color: var(--color-text-primary);
   letter-spacing: 0.036em;
   text-align: center;
   text-decoration: none;
@@ -460,10 +476,6 @@ a {
   grid-area: img;
 }
 
-.imgtext__img img {
-  border-radius: 6px;
-}
-
 .imgtext__img {
   grid-area: img;
 }
@@ -490,7 +502,7 @@ a {
     background: url(../img/img_bigquote.jpg) 50% 0 no-repeat;
     background-size: cover;
     margin-block-start: 2rem;
-    border-radius: 3px;
+    border-radius: var(--radius-small);
   }
 
   @media (width >= 750px) {
@@ -571,7 +583,6 @@ a {
 }
 
 .character__media {
-  border-radius: 6px;
   overflow: hidden;
   margin-block-end: calc(18 / 16 * 1rem);
 }
@@ -641,22 +652,6 @@ a {
   &:focus {
     text-decoration-color: inherit;
   }
-}
-
-/* ===============================
-=text align
-=============================== */
-
-.align-center {
-  text-align: center;
-}
-
-.align-end {
-  text-align: end;
-}
-
-.align-start {
-  text-align: start;
 }
 
 /* ===============================
@@ -794,4 +789,28 @@ a {
   width: 100%;
   aspect-ratio: var(--video-ratio);
   background-color: var(--video-background-color);
+}
+
+/* ===============================
+=text align utilities
+=============================== */
+
+.align-center {
+  text-align: center;
+}
+
+.align-end {
+  text-align: end;
+}
+
+.align-start {
+  text-align: start;
+}
+
+/* ===============================
+=rounded utility
+=============================== */
+
+.rounded {
+  border-radius: var(--radius);
 }
