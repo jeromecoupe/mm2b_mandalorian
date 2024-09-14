@@ -449,11 +449,11 @@ a {
 
   @media (width >= 1024px) {
     grid-template-columns:
-      minmax(0, 1fr)
       minmax(0, 5fr)
       minmax(0, 1fr)
-      minmax(0, 5fr);
-    grid-template-areas: ". img . txt";
+      minmax(0, 5fr)
+      minmax(0, 1fr);
+    grid-template-areas: "img . txt .";
     gap: var(--grid-gap);
   }
 }
@@ -462,13 +462,14 @@ a {
   @media (width >= 750px) {
     grid-template-areas: "txt img";
   }
+
   @media (width >= 1024px) {
     grid-template-columns:
-      minmax(0, 5fr)
       minmax(0, 1fr)
       minmax(0, 5fr)
-      minmax(0, 1fr);
-    grid-template-areas: "txt . img .";
+      minmax(0, 1fr)
+      minmax(0, 5fr);
+    grid-template-areas: ". txt . img";
   }
 }
 
